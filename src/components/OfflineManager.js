@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 // This component is imported but not actively used in the current implementation
 // The offline functionality is integrated directly into CourseCard component
