@@ -7,7 +7,7 @@ function ReminderManager({ course }) {
 
   useEffect(() => {
     checkExistingReminder();
-  }, [course.id]);
+  }, [course.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const checkExistingReminder = () => {
     const reminders = JSON.parse(localStorage.getItem('courseReminders') || '{}');
