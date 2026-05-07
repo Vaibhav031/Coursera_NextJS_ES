@@ -61,7 +61,7 @@ function ReminderManager({ course }) {
   };
 
   const showNotification = () => {
-    if ('Notification' in window && Notification.permission === 'granted') {
+    if (typeof Notification !== 'undefined' && Notification.permission === 'granted') {
       const notification = new Notification('Course Reminder', {
         body: `Time to continue learning: ${course.title}`,
         icon: '/logo192.png',
@@ -88,13 +88,19 @@ function ReminderManager({ course }) {
   };
 
   const requestNotificationPermission = async () => {
-    if ('Notification' in window) {
+    if (!('Notification' in window)) {
+      alert('Notifications are not supported on this device/browser.');
+      return;
+    }
+    try {
       const permission = await Notification.requestPermission();
       if (permission === 'granted') {
         alert('Notification permission granted!');
       } else {
         alert('Notification permission denied. Please enable it in browser settings.');
       }
+    } catch(e) {
+      console.log('Notification error:', e);
     }
   };
 
@@ -102,7 +108,7 @@ function ReminderManager({ course }) {
     <div className="reminder-manager">
       <h3>📅 Set a Reminder</h3>
       
-      {Notification.permission === 'default' && (
+      {'Notification' in window && Notification.permission === 'default' && (
         <div className="permission-request">
           <p>Enable notifications to receive course reminders</p>
           <button onClick={requestNotificationPermission}>
@@ -128,14 +134,14 @@ function ReminderManager({ course }) {
           <button 
             className="btn-reminder"
             onClick={() => setReminder('1hour')}
-            disabled={Notification.permission !== 'granted'}
+            disabled={'Notification' in window && Notification.permission !== 'granted'}
           >
             ⏰ Remind me in 1 hour
           </button>
           <button 
             className="btn-reminder"
             onClick={() => setReminder('tomorrow')}
-            disabled={Notification.permission !== 'granted'}
+            disabled={'Notification' in window && Notification.permission !== 'granted'}
           >
             📅 Remind me tomorrow
           </button>
