@@ -3,8 +3,6 @@ import './App.css';
 import CourseList from './components/CourseList';
 import CourseDetail from './components/CourseDetail';
 import UserProfile from './components/UserProfile';
-import OfflineManager from './components/OfflineManager';
-import ReminderManager from './components/ReminderManager';
 import StreakTracker from './components/StreakTracker';
 import SearchFilter from './components/SearchFilter';
 import { openDB } from 'idb';
@@ -31,10 +29,10 @@ function App() {
     if ('Notification' in window && Notification.permission === 'default') {
       Notification.requestPermission();
     }
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const initDB = async () => {
-    const db = await openDB('ELearningDB', 1, {
+    await openDB('ELearningDB', 1, {
       upgrade(db) {
         if (!db.objectStoreNames.contains('courses')) {
           db.createObjectStore('courses', { keyPath: 'id' });
