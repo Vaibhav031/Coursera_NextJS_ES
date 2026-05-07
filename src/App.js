@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import CourseList from './components/CourseList';
 import CourseDetail from './components/CourseDetail';
+import ErrorBoundary from './components/ErrorBoundary';
 import UserProfile from './components/UserProfile';
 import StreakTracker from './components/StreakTracker';
 import SearchFilter from './components/SearchFilter';
@@ -234,11 +235,13 @@ function App() {
         )}
 
         {view === 'detail' && selectedCourse && (
-          <CourseDetail 
-            course={selectedCourse}
-            onBack={() => setView('courses')}
-            onComplete={handleCourseComplete}
-          />
+          <ErrorBoundary>
+            <CourseDetail 
+              course={selectedCourse}
+              onBack={() => setView('courses')}
+              onComplete={handleCourseComplete}
+            />
+            </ErrorBoundary>
         )}
 
         {view === 'profile' && (
