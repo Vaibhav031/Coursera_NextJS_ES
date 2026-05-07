@@ -19,10 +19,12 @@ function CourseDetail({ course, onBack, onComplete }) {
 
     const handleTimeUpdate = () => {
       const currentTime = video.currentTime;
-      setVideoProgress((currentTime / video.duration) * 100);
-      
+      const duration = video.duration;
+      if (duration && !isNaN(duration) && duration > 0) {
+        setVideoProgress((currentTime / duration) * 100);
+      }
       // Save progress every 5 seconds
-      if (Math.floor(currentTime) % 5 === 0) {
+      if (Math.floor(currentTime) % 5 === 0 && currentTime > 0) {
         saveVideoProgress(currentTime);
       }
     };
