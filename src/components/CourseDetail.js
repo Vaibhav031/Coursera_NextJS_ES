@@ -4,6 +4,18 @@ import ReminderManager from './ReminderManager';
 import './CourseDetail.css';
 
 function CourseDetail({ course, onBack, onComplete }) {
+  const [windowSize, setWindowSize] = React.useState({
+    width: typeof window !== 'undefined' ? window.innerWidth : 400,
+    height: typeof window !== 'undefined' ? window.innerHeight : 800,
+  });
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   const [showConfetti, setShowConfetti] = useState(false);
   const [videoProgress, setVideoProgress] = useState(0);
   const [savedTimestamp, setSavedTimestamp] = useState(0);
@@ -94,10 +106,10 @@ function CourseDetail({ course, onBack, onComplete }) {
       {showConfetti && (
         <div className="confetti-container">
           <Confetti
-            width={window.innerWidth}
-            height={window.innerHeight}
+            width={windowSize.width}
+            height={windowSize.height}
             recycle={false}
-            numberOfPieces={500}
+            numberOfPieces={300}
           />
           <div className="completion-message">
             <h2>🎉 Great Job!</h2>
