@@ -1,0 +1,85 @@
+.streak-tracker {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.streak-display {
+  background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.streak-display:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.5);
+}
+
+.streak-icon {
+  font-size: 2rem;
+  animation: flicker 1.5s infinite;
+}
+
+@keyframes flicker {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.streak-count {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.streak-label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  opacity: 0.95;
+}
+
+@media (max-width: 768px) {
+  .streak-tracker {
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .streak-display {
+    padding: 0.8rem 1.2rem;
+    gap: 0.6rem;
+  }
+
+  .streak-icon {
+    font-size: 1.5rem;
+  }
+
+  .streak-count {
+    font-size: 1.5rem;
+  }
+
+  .streak-label {
+    font-size: 0.85rem;
+  }
+}

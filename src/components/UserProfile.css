@@ -1,0 +1,234 @@
+.user-profile {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+  text-align: center;
+  padding: 2rem 0;
+  border-bottom: 2px solid #e0e0e0;
+  margin-bottom: 2rem;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 4rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.profile-header h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.user-id {
+  color: #666;
+  font-size: 1rem;
+}
+
+.streak-section,
+.stats-section,
+.badges-section,
+.completed-courses {
+  margin-bottom: 2rem;
+}
+
+.streak-section h3,
+.stats-section h3,
+.badges-section h3,
+.completed-courses h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.streak-card {
+  background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+}
+
+.streak-number {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.streak-text {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.streak-message {
+  font-size: 1.1rem;
+  opacity: 0.95;
+  font-style: italic;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.95rem;
+  opacity: 0.95;
+}
+
+.no-badges,
+.no-completed {
+  color: #666;
+  font-style: italic;
+  text-align: center;
+  padding: 2rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+.badges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.badge-card {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(255, 165, 0, 0.3);
+  transform: rotate(-2deg);
+  transition: all 0.3s ease;
+}
+
+.badge-card:hover {
+  transform: rotate(0deg) scale(1.05);
+}
+
+.badge-icon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.badge-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.badge-description {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.upcoming-badges {
+  background: #f0f0f0;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.upcoming-badges h4 {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.upcoming-badges ul {
+  list-style: none;
+  padding: 0;
+}
+
+.upcoming-badges li {
+  padding: 0.8rem;
+  background: white;
+  margin-bottom: 0.5rem;
+  border-radius: 6px;
+  border-left: 4px solid #667eea;
+}
+
+.completed-list {
+  list-style: none;
+  padding: 0;
+}
+
+.completed-list li {
+  padding: 1rem;
+  background: #f9f9f9;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-left: 4px solid #4CAF50;
+}
+
+.check-icon {
+  background: #4CAF50;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .user-profile {
+    padding: 1.5rem;
+  }
+
+  .avatar {
+    width: 100px;
+    height: 100px;
+    font-size: 3rem;
+  }
+
+  .profile-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .streak-number {
+    font-size: 3rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .badges-grid {
+    grid-template-columns: 1fr;
+  }
+}
