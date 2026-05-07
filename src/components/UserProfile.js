@@ -12,7 +12,7 @@ function UserProfile({ streak, courses }) {
   useEffect(() => {
     loadBadges();
     calculateStats();
-  }, [courses, streak]);
+  }, [courses, streak]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const loadBadges = () => {
     const savedBadges = JSON.parse(localStorage.getItem('badges') || '[]');
