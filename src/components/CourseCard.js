@@ -7,7 +7,7 @@ function CourseCard({ course, onClick }) {
 
   useEffect(() => {
     checkOfflineAvailability();
-  }, [course.id]);
+  }, [course.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const checkOfflineAvailability = async () => {
     try {
