@@ -11,7 +11,7 @@ function CourseDetail({ course, onBack, onComplete }) {
 
   useEffect(() => {
     loadVideoProgress();
-  }, [course.id]);
+  }, [course.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     const video = videoRef.current;
@@ -32,7 +32,7 @@ function CourseDetail({ course, onBack, onComplete }) {
     return () => {
       video.removeEventListener('timeupdate', handleTimeUpdate);
     };
-  }, [course.id]);
+  }, [course.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const loadVideoProgress = () => {
     const saved = localStorage.getItem(`video_progress_${course.id}`);
